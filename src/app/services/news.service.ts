@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Results } from '../models/results';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  public search(query: string): Observable<any> {
+  public search(query: string): Observable<Results> {
     let params = new HttpParams;
     params = params.append('q', query);
     params = params.append('pageSize', 10);
