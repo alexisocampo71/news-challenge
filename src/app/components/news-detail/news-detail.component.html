@@ -1,0 +1,17 @@
+<div class="detail-header m-screen">
+    <div class="detail-header-date">{{ news?.publishedAt | date: 'dd-MM-yyyy' }}</div>
+    <div class="detail-header-author">{{ news?.author }}</div>
+    <h1 class="detail-header-title">{{ news?.title }}</h1>
+</div>
+<div class="img-container">
+    <img *ngIf="news?.urlToImage" src="{{news.urlToImage}}" alt="">
+</div>
+<div class="detail">
+    <div class="detail-header s-screen">
+        <div class="detail-header-date">{{ news?.publishedAt | date: 'dd-MM-yyyy' }}</div>
+        <div class="detail-header-author">{{ news?.author }}</div>
+    </div>
+    <h1 class="detail-title s-screen">{{ news?.title }}</h1>
+    <h3 class="detail-description">{{ news?.description }}</h3>
+    <p class="detail-content">{{news?.content}}</p>
+</div>

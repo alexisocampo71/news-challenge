@@ -1,0 +1,14 @@
+<div class="main" [ngClass]="{'not-searching': !searching}">
+    <app-search-form 
+    (searchResults)="addResults($event)"
+    (searchError)="showError($event)">
+    </app-search-form>
+    <div *ngIf="searchResults.length != 0" class="main-results">
+        <app-card class="main-results-result" *ngFor="let news of searchResults" [news]="news"></app-card>
+    </div>
+    <div *ngIf="error && searching" class="main-error-message">
+        {{ error }}
+    </div>
+</div>
+
+

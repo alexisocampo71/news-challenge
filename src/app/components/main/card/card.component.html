@@ -1,0 +1,29 @@
+<div class="card" (click)="showDetails()">
+    <div class="card-header">
+        <div class="card-header-date">
+            {{ news.publishedAt | date: 'dd-MM-yyyy' }}
+        </div>
+        <div class="card-header-author" >
+            Author: 
+            <span *ngIf="news.author">
+                {{(news.author.length>25)? (news.author | slice:0:25)+'(...)':(news.author)}}
+            </span>
+            <span *ngIf="!news.author">Unknown</span>
+        </div>
+    </div>
+    <div class="card-content">
+        <div class="card-content-title">
+           <b *ngIf="news.title">{{(news.title.length>110)? (news.title | slice:0:110)+'(...)':(news.title)}}</b>
+        </div>
+        <div class="card-content-description" *ngIf="news.description; else noDescription">
+            {{(news.description.length>this.descriptionMaxLength)? (news.description | slice:0:this.descriptionMaxLength)+'(...)':(news.description)}}
+        </div>
+        <ng-template #noDescription><div class="card-content-description"> </div></ng-template>
+        <div class="card-content-source"> 
+            <span class=card-content-source-spacer></span> 
+            <div class="card-content-source-text">
+                Source: {{news.source.name}}
+            </div> 
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+@use '../../../variables.scss' as var;
+
+form {
+    display: flex;
+    justify-content: center;
+    input {
+        outline: none;
+        width: 100%;
+        max-width: 400px;
+        margin: 30px;
+        border-radius: 10px;
+        height: 35px;
+        transition: box-shadow .3s;
+        font-family: var.$font;
+        font-size: 18px;
+        text-align: center;
+    }
+    input:hover {
+        box-shadow: var.$inputShadow;
+        outline: var.$themeViolet
+    }
+    input:focus {
+        border: 2px solid var.$themeViolet;
+        box-shadow: var.$inputShadow;
+    }
+    input:focus::placeholder {
+        color: transparent;
+    }
+}

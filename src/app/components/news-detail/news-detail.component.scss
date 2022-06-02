@@ -1,0 +1,90 @@
+@use '../../variables.scss' as var;
+
+.img-container {
+    width: 100%;
+    img {
+        width: 100%;
+    }
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    align-items: center;
+    margin: 0 auto;
+    &-title {
+        &.s-screen {
+            margin-top: 15px;
+        }
+    }
+    &-header {
+        text-align: right;
+        align-self: flex-end;
+        font-weight: lighter;
+        letter-spacing: 1px;
+        color: var.$themeGrey;
+        &.s-screen {
+            margin-top: 10px;
+        }
+        &.m-screen {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: var.$mScreenSize) {
+    .img-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            padding: 10px;
+            max-width: 500px;
+        }
+    }
+    .detail {
+        &-title {
+            &.s-screen {
+                display: none;
+            }
+        }
+        &-header {
+            margin-top: 30px;
+            &.s-screen {
+                display: none;
+            }
+            &.m-screen {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            &-title {
+                color: black;
+                max-width: 80vw;
+            }
+        }
+    }
+}
+
+@media (min-width: var.$lScreenSize) {
+    .img-container {
+        img {
+            max-width: var.$fullSizeContentSize;
+        }
+    }
+    .detail {
+        &-header {
+            &-title {
+                max-width: var.$fullSizeContentSize;
+            }
+        }
+        &-description {
+            max-width: var.$fullSizeContentSize;
+        }
+        &-content {
+            max-width: var.$fullSizeContentSize;
+        }
+    }
+}
